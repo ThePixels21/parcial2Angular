@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-sm-6 col-md-6 d-flex align-items-stretch justify-content-center"
+      *ngFor="let cita of citas">
+      <div class="card card-1 shadow">
+        <a routerLink="/dashboard/citas/editar/{{cita._id}}" routerLinkActive="active" ariaCurrentWhenActive="page"
+          class="text-decoration-none">
+          <div class="card-body p-1">
+            <h5 class="card-title">{{cita.nombre}}</h5>
+            <p class="card-text">{{cita.fecha}}</p>
+            <p class="card-text">{{cita.hora}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

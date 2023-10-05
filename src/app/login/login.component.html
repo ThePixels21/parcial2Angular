@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row vh-100 align-items-center ps-4 pe-4">
+        <div class="container border border-primary rounded-4">
+            <div class="titulo pt-4 pb-5">
+                <h3 class="text-center">Iniciar Sesión</h3>
+            </div>
+            <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                    <input type="text" formControlName="email" class="form-control" id="exampleFormControlInput1">
+                    <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']"
+                        class="alert alert-danger mt-2" role="alert">El email es requerido</div>
+                    <div *ngIf="loginForm.get('email')?.touched && !loginForm.get('email')?.errors?.['required'] && 
+                loginForm.get('email')?.errors?.['email']" class="alert alert-danger mt-2" role="alert">Email no válido
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput2" class="form-label">Contraseña</label>
+                    <input type="password" formControlName="password" class="form-control"
+                        id="exampleFormControlInput2">
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+                        class="alert alert-danger mt-2" role="alert">La contraseña es requerida</div>
+                </div>
+                <div class="boton text-center mb-4 d-grid gap-2 col-3 mx-auto">
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

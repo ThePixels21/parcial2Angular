@@ -1,0 +1,40 @@
+<div class="container">
+    <form (ngSubmit)="editar()" [formGroup]="editarForm">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Cedula</label>
+            <input type="text" formControlName="cedula" class="form-control" id="exampleFormControlInput1">
+            <div *ngIf="editarForm.get('cedula')?.touched && editarForm.get('cedula')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">La cédula es requerida</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control" id="exampleFormControlInput2">
+            <div *ngIf="editarForm.get('nombre')?.touched && editarForm.get('nombre')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">El nombre es requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Fecha</label>
+            <input type="date" formControlName="fecha" class="form-control" id="exampleFormControlInput2">
+            <div *ngIf="editarForm.get('fecha')?.touched && editarForm.get('fecha')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">La fecha es requerida</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Hora</label>
+            <input type="datetime" formControlName="hora" class="form-control" id="exampleFormControlInput2">
+            <div *ngIf="editarForm.get('hora')?.touched && editarForm.get('hora')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">La hora es requerida</div>
+            <div *ngIf="editarForm.get('hora')?.touched && !editarForm.get('hora')?.errors?.['required'] && editarForm.get('hora')?.errors?.['minlength']
+            || editarForm.get('hora')?.touched && !editarForm.get('hora')?.errors?.['required'] && !editarForm.get('hora')?.errors?.['minlength'] && editarForm.get('hora')?.errors?.['maxlength']"
+                class="alert alert-danger mt-2" role="alert">La hora debe ser válida "00:00"</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Observaciones</label>
+            <input type="text" formControlName="observaciones" class="form-control" id="exampleFormControlInput2">
+            <div *ngIf="editarForm.get('observaciones')?.touched && editarForm.get('observaciones')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">Las observaciones son requeridas</div>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <form (ngSubmit)="asignar()" [formGroup]="asignarForm">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Cédula</label>
+            <input type="number" formControlName="cedula" class="form-control" id="exampleFormControlInput1">
+            <div *ngIf="asignarForm.get('cedula')?.touched && asignarForm.get('cedula')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">La cédula es requerida</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control" id="exampleFormControlInput2">
+            <div *ngIf="asignarForm.get('nombre')?.touched && asignarForm.get('nombre')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">El nombre es requerido</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Fecha</label>
+            <input type="date" formControlName="fecha" class="form-control" id="exampleFormControlInput2">
+            <div *ngIf="asignarForm.get('fecha')?.touched && asignarForm.get('fecha')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">La fecha es requerida</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Hora</label>
+            <input type="datetime" formControlName="hora" class="form-control" id="exampleFormControlInput2">
+            <div *ngIf="asignarForm.get('hora')?.touched && asignarForm.get('hora')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">La hora es requerida</div>
+            <div *ngIf="asignarForm.get('hora')?.touched && !asignarForm.get('hora')?.errors?.['required'] && asignarForm.get('hora')?.errors?.['minlength']
+            || asignarForm.get('hora')?.touched && !asignarForm.get('hora')?.errors?.['required'] && !asignarForm.get('hora')?.errors?.['minlength'] && asignarForm.get('hora')?.errors?.['maxlength']"
+                class="alert alert-danger mt-2" role="alert">La hora debe ser válida "00:00"</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Observaciones</label>
+            <input type="text" formControlName="observaciones" class="form-control" id="exampleFormControlInput2">
+            <div *ngIf="asignarForm.get('observaciones')?.touched && asignarForm.get('observaciones')?.errors?.['required']"
+                class="alert alert-danger mt-2" role="alert">Las observaciones son requeridas</div>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Asignar</button>
+        </div>
+    </form>
+</div>
