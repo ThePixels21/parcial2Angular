@@ -2,7 +2,7 @@
     <form (ngSubmit)="editar()" [formGroup]="editarForm">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Cedula</label>
-            <input type="text" formControlName="cedula" class="form-control" id="exampleFormControlInput1">
+            <input type="number" formControlName="cedula" class="form-control" id="exampleFormControlInput1">
             <div *ngIf="editarForm.get('cedula')?.touched && editarForm.get('cedula')?.errors?.['required']"
                 class="alert alert-danger mt-2" role="alert">La cédula es requerida</div>
         </div>
